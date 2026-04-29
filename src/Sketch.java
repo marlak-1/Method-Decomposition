@@ -21,42 +21,54 @@ public class Sketch extends PApplet {
         int choice = (int) random(3);
 
         if (choice == 0) {
-            // Polish flag (white over red)
-            fill(255);
-            rect(0, 0, width, height / 2);
-            fill(200, 0, 0);
-            rect(0, height / 2, width, height / 2);
+            // Poland
+            drawHorizontalFlag(255, 255, 255, 200, 0, 0);
 
         } else if (choice == 1) {
-            // Ukraine flag (blue over yellow)
-            fill(0, 87, 183);
-            rect(0, 0, width, height / 2);
-            fill(255, 215, 0);
-            rect(0, height / 2, width, height / 2);
+            // Ukraine
+            drawHorizontalFlag(0, 87, 183, 255, 215, 0);
 
         } else {
-            // Canada flag
-            fill(255, 0, 0);
-            rect(0, 0, width / 4, height);
-            rect(3 * width / 4, 0, width / 4, height);
-
-            fill(255);
-            rect(width / 4, 0, width / 2, height);
-
-            // Simplified star shape in place of maple leaf
-            fill(255, 0, 0);
-            beginShape();
-            vertex(width / 2, 80);
-            vertex(width / 2 - 20, 160);
-            vertex(width / 2 - 60, 160);
-            vertex(width / 2 - 30, 220);
-            vertex(width / 2 - 50, 320);
-            vertex(width / 2,      260);
-            vertex(width / 2 + 50, 320);
-            vertex(width / 2 + 30, 220);
-            vertex(width / 2 + 60, 160);
-            vertex(width / 2 + 20, 160);
-            endShape(CLOSE);
+            drawCanadaStripes();
+            drawMapleLeaf();
         }
+    }
+
+
+
+
+    private void drawHorizontalFlag(int topR, int topG, int topB, 
+                                    int bottomR, int bottomG, int bottomB) {
+        fill(topR, topG, topB);
+        rect(0, 0, width, height / 2);
+
+        fill(bottomR, bottomG, bottomB);
+        rect(0, height / 2, width, height / 2);
+    }
+
+    private void drawCanadaStripes() {
+        fill(255, 0, 0);
+        rect(0, 0, width / 4, height);
+        rect(3 * width / 4, 0, width / 4, height);
+
+        fill(255);
+        rect(width / 4, 0, width / 2, height);
+    }
+
+    private void drawMapleLeaf() {
+        // Simplified star shape in place of maple leaf
+        fill(255, 0, 0);
+        beginShape();
+        vertex(width / 2, 80);
+        vertex(width / 2 - 20, 160);
+        vertex(width / 2 - 60, 160);
+        vertex(width / 2 - 30, 220);
+        vertex(width / 2 - 50, 320);
+        vertex(width / 2,      260);
+        vertex(width / 2 + 50, 320);
+        vertex(width / 2 + 30, 220);
+        vertex(width / 2 + 60, 160);
+        vertex(width / 2 + 20, 160);
+        endShape(CLOSE);
     }
 }
