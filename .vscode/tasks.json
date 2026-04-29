@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run Sketch",
+      "label": "Run Sketch (your working file)",
       "type": "shell",
       "command": "javac -cp lib/core.jar -d bin src/Sketch.java && java -cp bin:lib/core.jar Sketch",
       "windows": {
@@ -18,6 +18,75 @@
         "kind": "build",
         "isDefault": true
       },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "shared",
+        "clear": true,
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Step 1: One Method Per Flag",
+      "type": "shell",
+      "command": "javac -cp lib/core.jar -d bin src/Step1_OneFlagPerMethod.java && java -cp bin:lib/core.jar Step1_OneFlagPerMethod",
+      "windows": {
+        "command": "javac -cp lib\\core.jar -d bin src\\Step1_OneFlagPerMethod.java && java -cp bin;lib\\core.jar Step1_OneFlagPerMethod",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/C"]
+          }
+        }
+      },
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "shared",
+        "clear": true,
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Step 2: Reusable Methods",
+      "type": "shell",
+      "command": "javac -cp lib/core.jar -d bin src/Step2_ReusableMethods.java && java -cp bin:lib/core.jar Step2_ReusableMethods",
+      "windows": {
+        "command": "javac -cp lib\\core.jar -d bin src\\Step2_ReusableMethods.java && java -cp bin;lib\\core.jar Step2_ReusableMethods",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/C"]
+          }
+        }
+      },
+      "group": "build",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "panel": "shared",
+        "clear": true,
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Step 3: Better Maple Leaf",
+      "type": "shell",
+      "command": "javac -cp lib/core.jar -d bin src/Step3_BetterMapleLeaf.java && java -cp bin:lib/core.jar Step3_BetterMapleLeaf",
+      "windows": {
+        "command": "javac -cp lib\\core.jar -d bin src\\Step3_BetterMapleLeaf.java && java -cp bin;lib\\core.jar Step3_BetterMapleLeaf",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/C"]
+          }
+        }
+      },
+      "group": "build",
       "options": {
         "cwd": "${workspaceFolder}"
       },
