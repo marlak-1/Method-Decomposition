@@ -26,8 +26,8 @@ Each time you run it, a different flag may appear.
 2. Press **`Cmd+Shift+B`** (Mac) or **`Ctrl+Shift+B`** (Windows) to compile and run `Sketch.java`.
 3. To run the completed reference files, use **Terminal > Run Task** and select the step you want.
 
-> [!NOTE]
-> **Teacher:** Before running, ask students to read `Sketch.java` and predict what the output will look like. Then run it a few times to confirm each flag is possible.
+> [!TIP]
+> Before running, read through `Sketch.java` and predict what you'll see. Then run it a few times to confirm all three flags are possible.
 
 ---
 
@@ -98,7 +98,7 @@ The program works — but there are problems:
 Code that works but is tangled, repetitive, and hard to follow is sometimes called **spaghetti code**.
 
 > [!NOTE]
-> **Teacher:** Ask students: _"What would happen if I wanted to add a fourth flag? Or fix a bug in just the Canadian stripes? How long would it take you to find the right place to edit?"_ The goal is to surface how hard it is to navigate and maintain this code as it grows.
+> What would you have to do to add a fourth flag? Or fix a bug in just the Canadian stripes? How long would it take you to find the right place to edit?
 
 ---
 
@@ -125,7 +125,7 @@ public void setup() {
 ```
 
 > [!TIP]
-> **Try it:** In `Sketch.java`, create three new methods — `drawPolandFlag()`, `drawUkraineFlag()`, and `drawCanadaFlag()` — and move the drawing code into them. Run it to confirm it still works.
+> In `Sketch.java`, create three new methods — `drawPolandFlag()`, `drawUkraineFlag()`, and `drawCanadaFlag()` — and move the drawing code into them. Run it to confirm it still works.
 
 Then run the reference version to compare:
 
@@ -144,7 +144,7 @@ Then run the reference version to compare:
 - The leaf shape is still a wall of unexplained numbers.
 
 > [!NOTE]
-> **Teacher:** Ask: _"These two methods look almost the same. What's actually different between them?"_ (Answer: just the colours.) _"What if we want to add a German flag, or a French flag? Would we write another copy of almost the same code?"_ Use this to motivate the next refactor.
+> Look at `drawPolandFlag()` and `drawUkraineFlag()`. What's actually different between them? What if you needed to add a German flag, or a French flag — would you write another near-copy of the same code?
 
 ---
 
@@ -202,7 +202,7 @@ private void drawMapleLeaf() {
 ```
 
 > [!TIP]
-> **Try it:** Update `Sketch.java` with these changes. Run it — the output should look identical to before.
+> Update `Sketch.java` with these changes. Run it — the output should look identical to before.
 
 Then run the reference version to compare:
 
@@ -215,7 +215,7 @@ Then run the reference version to compare:
 - `drawMapleLeaf()` is completely isolated. You can update or replace it without touching anything else.
 
 > [!NOTE]
-> **Teacher:** This is a good moment to highlight **method composition** — larger tasks calling smaller helpers. Draw the call tree on the board: `setup()` calls `drawCanadaFlag()`, which calls `drawCanadaStripes()` and `drawMapleLeaf()`. Each method has one job.
+> Notice the **call tree**: `setup()` calls `drawCanadaFlag()`, which calls `drawCanadaStripes()` and `drawMapleLeaf()`. Larger tasks delegate to smaller helpers. This is called **method composition**.
 
 > [!IMPORTANT]
 > The key principle: **each method should do one thing, and do it well.** When you read a method name, you should know exactly what it does — and nothing else should be in there.
@@ -229,7 +229,7 @@ Here's the payoff.
 The simplified "maple leaf" in `drawMapleLeaf()` is really just a star shape — not very convincing. But because `drawMapleLeaf()` is completely isolated from the rest of the code, we can replace it with a much more accurate version without touching *anything else*.
 
 > [!NOTE]
-> **Teacher:** Ask students: _"If we had kept all the leaf code tangled inside `drawCanadaFlag()` — or inside `setup()` — what would we have to be careful about when replacing it?"_ The point is that good decomposition makes upgrades safe and local.
+> Think about it: if the leaf code were still tangled inside `drawCanadaFlag()` or `setup()`, what would you have to be careful about when replacing it? How does isolating it make this upgrade easier?
 
 ### Replace `drawMapleLeaf()` with this version
 
@@ -289,7 +289,7 @@ private void drawCanadaFlag() {
 ```
 
 > [!TIP]
-> **Try it:** Make these two changes in `Sketch.java` and run it. Keep re-running until you see the Canadian flag — the difference should be obvious.
+> Make these two changes in `Sketch.java` and run it. Keep re-running until you see the Canadian flag — the difference should be obvious.
 
 Then run the reference version to compare:
 
